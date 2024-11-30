@@ -1,11 +1,259 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Contenido</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Lateral con Ocultamiento</title>
+  <!-- Enlace a UIkit CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.27/dist/css/uikit.min.css">
+  <style>
+    /* Estilo opcional para ocultar contenido con una transición */
+    @import url("https://fonts.googleapis.com/css?family=Libre+Franklin:400,700&subset=latin");
+
+    .hidden {
+      display: none;
+    }
+
+    .uk-background-glass {
+      background-color: rgba(255, 255, 255, .30);
+      backdrop-filter: blur(20px);
+    }
+
+    .uk-border-rounded-custom {
+      border-radius: 16px;
+    }
+
+    h1 {
+      font: 6vmin/.8 "Libre Franklin";
+      font-weight: 700;
+      letter-spacing: -.05em;
+      color: #fff;
+      text-shadow: 0 0 5px #fff;
+      mix-blend-mode: overlay;
+    }
+
+    .uk-background-custom {
+      background: rgb(255, 255, 255);
+      background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(225, 222, 254, 1) 100%);
+    }
+
+    /* Style for the video container */
+    .background-video {
+      position: fixed;
+      /* Sticks the video to the viewport */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      /* Ensures it stays behind other content */
+    }
+
+    /* Ensures the video covers the container */
+    .background-video video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: cover;
+      /* Ensures the video covers the screen */
+    }
+
+    .uk-nav-default>li.uk-active>a,
+    .uk-nav-default .uk-nav-sub li.uk-active>a {
+      color: #000;
+      font-weight: bold;
+    }
+  </style>
 </head>
+
 <body>
-	Contenido aqui
+  <!-- Video background -->
+  <div class="background-video">
+    <video autoplay muted loop>
+      <source src="https://videos.pexels.com/video-files/7077358/7077358-uhd_2732_1440_30fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div uk-sticky="sel-target: .uk-navbar-container;" class="uk-hidden@l">
+    <nav class="uk-navbar-container uk-navbar-transparent uk-background-glass">
+      <div class="uk-container">
+        <div uk-navbar>
+          <div class="uk-navbar-right">
+            <a class="uk-navbar-toggle" uk-navbar-toggle-icon uk-toggle="#offcanvas-nav"></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="uk-grid" uk-grid>
+    <div class="uk-width-1-5@m uk-padding uk-visible@l uk-background-glass" uk-height-viewport>
+      <div class="uk-padding-small" uk-sticky="sel-target: .uk-nav-default;">
+        <ul class="uk-nav uk-nav-default">
+          <li class="uk-active"><a href="#" class="sectionButton" data-target="home">Inicio</a></li>
+          <li class="uk-parent">
+            <a href="#">Fase 1 - Planificación, Objetivos-metas</a>
+            <ul class="uk-nav-sub">
+              <li><a href="#" class="sectionButton" data-target="fase_1_1">Presentación del proyecto</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_1_2">Objetivo general</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_1_3">Objetivos específicos</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_1_4">Metas</a></li>
+            </ul>
+          </li>
+          <li class="uk-parent">
+            <a href="#">Fase 3 - Planificación, Objetivos-metas</a>
+            <ul class="uk-nav-sub">
+              <li><a href="#" class="sectionButton" data-target="fase_3_1">Presentación del proyecto</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_3_2">Objetivo general</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_3_3">Objetivos específicos</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_3_4">Metas</a></li>
+            </ul>
+          </li>
+          <li class="uk-parent">
+            <a href="#">Fase 4 - Planificación, Objetivos-metas</a>
+            <ul class="uk-nav-sub">
+              <li><a href="#" class="sectionButton" data-target="fase_4_1">Presentación del proyecto</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_4_2">Objetivo general</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_4_3">Objetivos específicos</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_4_4">Metas</a></li>
+            </ul>
+          </li>
+          <li class="uk-parent">
+            <a href="#">Fase 5 - Planificación, Objetivos-metas</a>
+            <ul class="uk-nav-sub">
+              <li><a href="#" class="sectionButton" data-target="fase_5_1">Presentación del proyecto</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_5_2">Objetivo general</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_5_3">Objetivos específicos</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_5_4">Metas</a></li>
+            </ul>
+          </li>
+          <li class="uk-parent">
+            <a href="#">Fase 6 - Planificación, Objetivos-metas</a>
+            <ul class="uk-nav-sub">
+              <li><a href="#" class="sectionButton" data-target="fase_6_1">Presentación del proyecto</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_6_2">Objetivo general</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_6_3">Objetivos específicos</a></li>
+              <li><a href="#" class="sectionButton" data-target="fase_6_4">Metas</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="uk-width-expand@m uk-padding">
+      <div id="contentDiv">
+        <h1>Inicio</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- offcanvas menu -->
+  <div id="offcanvas-nav" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar">
+
+      <ul class="uk-nav uk-nav-default">
+        <li class="uk-active"><a href="#" class="sectionButton" data-target="home">Inicio</a></li>
+        <li class="uk-parent">
+          <a href="#">Fase 1 - Planificación, Objetivos-metas</a>
+          <ul class="uk-nav-sub">
+            <li><a href="#" class="sectionButton" data-target="fase_1_1">Presentación del proyecto</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_1_2">Objetivo general</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_1_3">Objetivos específicos</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_1_4">Metas</a></li>
+          </ul>
+        </li>
+        <li class="uk-parent">
+          <a href="#">Fase 3 - Planificación, Objetivos-metas</a>
+          <ul class="uk-nav-sub">
+            <li><a href="#" class="sectionButton" data-target="fase_3_1">Presentación del proyecto</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_3_2">Objetivo general</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_3_3">Objetivos específicos</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_3_4">Metas</a></li>
+          </ul>
+        </li>
+        <li class="uk-parent">
+          <a href="#">Fase 4 - Planificación, Objetivos-metas</a>
+          <ul class="uk-nav-sub">
+            <li><a href="#" class="sectionButton" data-target="fase_4_1">Presentación del proyecto</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_4_2">Objetivo general</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_4_3">Objetivos específicos</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_4_4">Metas</a></li>
+          </ul>
+        </li>
+        <li class="uk-parent">
+          <a href="#">Fase 5 - Planificación, Objetivos-metas</a>
+          <ul class="uk-nav-sub">
+            <li><a href="#" class="sectionButton" data-target="fase_5_1">Presentación del proyecto</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_5_2">Objetivo general</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_5_3">Objetivos específicos</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_5_4">Metas</a></li>
+          </ul>
+        </li>
+        <li class="uk-parent">
+          <a href="#">Fase 6 - Planificación, Objetivos-metas</a>
+          <ul class="uk-nav-sub">
+            <li><a href="#" class="sectionButton" data-target="fase_6_1">Presentación del proyecto</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_6_2">Objetivo general</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_6_3">Objetivos específicos</a></li>
+            <li><a href="#" class="sectionButton" data-target="fase_6_4">Metas</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+
+  <!-- Enlace a UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.27/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.27/dist/js/uikit-icons.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $(document).ready(function () {
+      var content = {
+        home: '<h1>Inicio</h1>',
+        fase_1_1: '<h1>Presentación del proyecto</h1><div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid> <div class="uk-flex-last@s uk-card-media-right uk-cover-container"> <img src="f1_1.png" alt="" uk-cover> <canvas width="600" height="400"></canvas> </div> <div> <div class="uk-card-body"><p>El tema de mi proyecto son las inundaciones debido al exceso de asura que se tiran en la zona central de la comunidad donde vivo, la relevancia del tema es importante ya que, de llevarse a cabo no solo beneficiaría a los habitantes actuales, sino que también mejorará la calidad de vida de las generaciones futuras; el propósito principal del proyecto es organizar actividades que permitan concientizar a la población de los efectos negativos así como organizar campañas de limpieza y pretendo llevarlo a cabo en conjunto con las autoridades locales, así como los pobladores de la comunidad.</p> </div> </div></div>',
+        fase_1_2: '<h1>Objetivo general</h1><div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid> <div class="uk-flex-last@s uk-card-media-right uk-cover-container"> <img src="f1_2.png" alt="" uk-cover> <canvas width="600" height="400"></canvas> </div> <div> <div class="uk-card-body"><p>Ejecutar actividades en las que se involucren tanto habitantes como autoridades en la limpieza y mantenimiento de las áreas afectadas por las inundaciones para lograr promover un entorno seguro y saludable a través de campañas de concientización, jornadas de limpieza comunitaria y la colocación de botes de basura en puntos estratégicos, esto para reducir los riesgos de salud pública y daños materiales ocasionados por las inundaciones, esperando que esto genere un enfoque positivo en el que se produzca un hábito de estas prácticas para asegurar su continuidad y mantener un impacto positivo y duradero en la comunidad.</p> </div> </div> </div>',
+        fase_1_3: '<h1>Objetivos específicos</h1><div class="uk-section uk-section-default  uk-align-left"> <div class="uk-container"> <div class="uk-grid-match uk-child-width-1-3@m" uk-grid> <div> <h2>Cualitativos</h2> <p>Realizar jornadas de limpieza con los habitantes para que las autoridades vean el compromiso por mejorar la zona.</p> </div> <div> <h2>Conductuales</h2> <p>Identificar puntos clave para situar los botes de basura y tratar de captar cada vez más voluntarios para las jornadas de limpieza.</p> </div> <div> <h2>Específicos</h2> <p>Brindar la información necesaria en campañas de concienciación y al solicitar voluntarios para que todo sea transparente.</p> </div> </div> </div> </div>',
+        fase_1_4: '<h1>Metas</h1><div class="uk-section uk-section-default uk-align-left"> <div class="uk-container"> <div class="uk-grid-match uk-child-width-1-3@m" uk-grid> <div> <h2>Cualitativos</h2> <p>Coordinarme con las autoridades  para obtener el permiso y exponer a la mayor audiencia posible las campañas.</p> <p>Llevar a cabo en conjunto con las autoridades la medición del avance de las mejoras del proyecto en un año.</p> </div> <div> <h2>Conductuales</h2> <p>Coordinarme con las autoridades  para lograr obtener los recursos necesarios para no dejar incompleto el proyecto.</p> <p>Buscar la seriedad de los participantes ya que en ocasiones son jóvenes que solo buscan salir de sus hogares a perder el tiempo.</p> </div> <div> <h2>Específicos</h2> <p>Lograr que participe una afluencia mayor a 40 personas entre voluntarios y personal del gobierno.</p> <p>Solicitar apoyo de las autoridades para la recolección y traslado de la basura y residuos obtenidos después de las jornadas de limpieza.</p> </div> </div> </div> </div>',
+        fase_3_1: '<h1>Presentación del proyecto</h1><div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid> <div class="uk-flex-last@s uk-card-media-right uk-cover-container"> <img src="images/light.jpg" alt="" uk-cover> <canvas width="600" height="400"></canvas> </div> <div> <div class="uk-card-body"> <h3 class="uk-card-title">Media Right</h3> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> </div> </div> </div><div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid> <div class="uk-flex-last@s uk-card-media-right uk-cover-container"> <img src="images/light.jpg" alt="" uk-cover> <canvas width="600" height="400"></canvas> </div> <div> <div class="uk-card-body"> <h3 class="uk-card-title">Media Right</h3> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia in a expedita eum enim quia praesentium quos eveniet, porro eligendi quam voluptate. Sunt laborum architecto corrupti quo tempore ad cumque.</p> </div> </div> </div>',
+        fase_3_2: '<h1>Objetivo general</h1>',
+        fase_3_3: '<h1>Objetivos específicos</h1>',
+        fase_3_4: '<h1>Metas</h1>',
+        fase_4_1: '<h1>Presentación del proyecto</h1><div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid> <div class="uk-flex-last@s uk-card-media-right uk-cover-container"> <img src="fase_1_1" alt="" uk-cover> <canvas width="600" height="400"></canvas> </div> <div> <div class="uk-card-body"> <h3 class="uk-card-title">Media Right</h3> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> </div> </div> </div>',
+        fase_4_2: '<h1>Objetivo general</h1>',
+        fase_4_3: '<h1>Objetivos específicos</h1>',
+        fase_4_4: '<h1>Metas</h1>',
+        fase_5_1: '<h1>Presentación del proyecto</h1><div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid> <div class="uk-flex-last@s uk-card-media-right uk-cover-container"> <img src="fase_1_1" alt="" uk-cover> <canvas width="600" height="400"></canvas> </div> <div> <div class="uk-card-body"> <h3 class="uk-card-title">Media Right</h3> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> </div> </div> </div>',
+        fase_5_2: '<h1>Objetivo general</h1>',
+        fase_5_3: '<h1>Objetivos específicos</h1>',
+        fase_5_4: '<h1>Metas</h1>',
+        fase_6_1: '<h1>Presentación del proyecto</h1><div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid> <div class="uk-flex-last@s uk-card-media-right uk-cover-container"> <img src="fase_1_1" alt="" uk-cover> <canvas width="600" height="400"></canvas> </div> <div> <div class="uk-card-body"> <h3 class="uk-card-title">Media Right</h3> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> </div> </div> </div>',
+        fase_6_2: '<h1>Objetivo general</h1>',
+        fase_6_3: '<h1>Objetivos específicos</h1>',
+        fase_6_4: '<h1>Metas</h1'
+      };
+
+
+      $('.sectionButton').on('click', function () {
+        $('li').removeClass('uk-active');
+        const targetDiv = $(this).data('target');
+        loadContent(targetDiv);
+        $(this).parent().addClass('uk-active');
+      });
+
+      function loadContent(section) {
+        $('#contentDiv').html(content[section]);
+      }
+    });    
+  </script>
 </body>
+
 </html>
